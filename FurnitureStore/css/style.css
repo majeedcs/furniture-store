@@ -1,0 +1,17 @@
+/*Theme*/
+
+:root[data-theme="light"] {
+    --r-bg-color: white; /*bg is background*/
+    --r-font-color: rgb(0,0,0);
+    
+}
+
+html[data-theme="dark"] {
+    --r-bg-color: rgb(40,40,40); /*bg is background*/
+    --r-font-color: white;
+}
+
+body {
+    background-color: var(--r-bg-color);
+    color: var(--r-font-color)
+}
