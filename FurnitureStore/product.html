@@ -12,33 +12,57 @@
 <body>
     <header>
         <h1 id="rm-furniture">RM Furniture Store</h1>
-        <ul class="nav nav-pills nav-fill">
-            <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="product.html">Our Products</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="account.html">Account</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="cart.html"><img src="assets/images/cart.svg" alt="cart-icon"> Cart</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-            </li>
-        </ul>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form class="d-flex">
+                    <div class="input-group">
+                        <input class="form-control form-control-lg" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-primary " type="submit">
+                                <img src="assets/images/search.svg" alt="search">
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br>
+        <nav>
+            <ul class="nav nav-pills nav-fill">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="product.html">Our Products</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="account.html">Account</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cart.html"><img src="assets/images/cart.svg" alt="cart-icon"> Cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+                </li>
+            </ul>
+        </nav>
+        
     </header>
     <div class="container text-center">
-        <div class="row row-cols-4">
-          <div class="col">Column</div>
-          <div class="col">Column</div>
-          <div class="col">Column</div>
-          <div class="col">Column</div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+            <article id="item-one">
+                <div class="col">Item <img src="assets/images/chair-one.jpg" alt="chair"></div>
+            </article>
+            <article id="item-one">
+                <div class="col">Item <img src="assets/images/chair-one.jpg" alt="chair"></div>
+            </article>
+            <article id="item-one">
+                <div class="col">Item <img src="assets/images/chair-one.jpg" alt="chair"></div>
+            </article>
+            <article id="item-one">
+                <div class="col">Item <img src="assets/images/chair-one.jpg" alt="chair"></div>
+            </article>       
         </div>
       </div>
     

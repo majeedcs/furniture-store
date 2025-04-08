@@ -15,3 +15,13 @@ body {
     background-color: var(--r-bg-color);
     color: var(--r-font-color)
 }
+
+/* Product Listing*/
+.container article img {
+    border: 2px solid #555;
+}
+
+.carousel-inner img{
+    width: fit-content;
+    background-color: aqua;
+}
