@@ -25,3 +25,43 @@ body {
     width: fit-content;
     background-color: aqua;
 }
+
+#account-container-sm {
+    border: 1px solid grey;
+    padding: 1rem 2rem 5rem;
+}
+
+#settings-container {
+    margin: auto;
+    border: 1px solid grey;
+    width: 50%;
+}
+
+#range-set-theme-label {
+    display: inline;
+    margin-left: 1rem;
+}
+
+#range-set-theme {
+    display: inline-block;
+    width: 2rem;
+    box-shadow: none;
+}
+
+#cart-container {
+    border: 1px solid grey;
+    width: 50%;
+    margin: auto;
+}
+
+#contact-info {
+    display: flex;
+    justify-content: space-around;
+}
+
+#about-us-container {
+    display: inline-block;
+    margin: auto;
+    border: 1px solid black;
+    width: 50%;
+}
