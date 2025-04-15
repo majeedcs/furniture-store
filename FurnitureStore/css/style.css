@@ -65,3 +65,13 @@ body {
     border: 1px solid black;
     width: 50%;
 }
+
+/*Carousel*/
+
+#carouselExampleAutoplaying img{
+    margin: auto;
+}
+
+#carouselExampleAutoplaying{
+    background-color: #555;
+}
