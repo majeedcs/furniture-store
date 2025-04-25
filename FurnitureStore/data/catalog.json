@@ -1,0 +1,43 @@
+{
+    "categories": [
+      {
+        "categoryId": 1,
+        "categoryName": "Chairs",
+        "description": "Seating for home and office."
+      },
+      {
+        "categoryId": 2,
+        "categoryName": "Tables",
+        "description": "Stylish and functional tables."
+      },
+      {
+        "categoryId": 3,
+        "categoryName": "Beds",
+        "description": "Sleeping furniture in various styles."
+      },
+      {
+        "categoryId": 4,
+        "categoryName": "Storage",
+        "description": "Cabinets, closets, and drawers."
+      },
+      {
+        "categoryId": 5,
+        "categoryName": "Miscellaneous",
+        "description": "Other home essentials and unique finds."
+      }
+    ],
+    "products": [
+      {
+        "itemId": "",
+        "categoryId": "",
+        "itemTitle": "",
+        "description": "",
+        "brand": "",
+        "unitPrice": "",
+        "quantityInStock": "",
+        "make": "",
+        "thumbnailImage": ""
+      }
+      //TODO: Add 19 more.
+    ]
+  }
