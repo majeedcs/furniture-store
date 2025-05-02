@@ -7,11 +7,13 @@ function init() {
     const accConfirmBtn = document.getElementById("account-confirm-btn");
     accountSignIn();
     const forgotPasswordContinue = document.getElementById("forgot-password-continue-btn");
+    // fetchCatalog();
     // forgotPasswordContinue.addEventListener('click', continueForgotPassword);
 
-    fetchCatalog();
-
-    // const page = document.querySelector("[data-page]").dataset.page;
+    const page = document.querySelector("[data-page]").dataset.page;
+    if(page === "catalog") {
+        fetchCatalog();
+    }
     // switch (page) {
     //     case "home":
     //         HomeUtils.initHome();
@@ -33,10 +35,10 @@ function init() {
 
 async function fetchCatalog() { 
     try {
-        const resourceUri = 'https://furniture-api.fly.dev/v1/products';
+        const resourceUri = './data/catalog.json';
         const catalog = await fetchData(resourceUri);
         console.log(catalog);
-        parseCatalog(catalog);
+        parseCatalog(catalog.products);
     } catch(error) {
         console.log(`Error while fetchcing the catalog: ${error.message}`);
     }
@@ -58,37 +60,33 @@ async function fetchData(resourceUri) {
 }
 
 function parseCatalog(catalog) {
+    const articleContainer = document.getElementById('catalog-article-container');
     console.log(catalog);
-    shows.forEach(product => {
+    catalog.forEach(product => {
         console.log(product);
-    //     const article = createCustomElement(, 'tr', '');
-    //     const colID = createCustomElement(tr, 'td', show.id);
-    //     const colName = createCustomElement(tr, 'td', show.name);
-    //     colName.setAttribute("data-show-id", show.id);
-    //     colName.addEventListener('click', (event) => 
-    //     {
-    //         // console.log('Product was clicked...');
-    //         // console.log(event.target);
-    //         const strShow = JSON.stringify(show);
-    //         localStorage.setItem('selected-show', strShow);
-    //         // const showId = colName.getAttribute("data-show-id");
-    //         // localStorage.setItem('showId', showId);
-    //         window.location = "details.html";
-    //     });
-    //     const colType = createCustomElement(tr, 'td', show.type);
-    //     const colLang = createCustomElement(tr, 'td', show.language);
-    //     const colGenre = createCustomElement(tr, 'td', show.genres);
-    //     const colStatus = createCustomElement(tr, 'td', show.status);
-    //     const colPremiered = createCustomElement(tr, 'td', show.premiered);
-    //     const colSite = createCustomElement(tr, 'td', '');
-    //     const showLink = createCustomElement(colSite, 'a', 'Visit Site');
-    //     showLink.href = show.officialSite;
-    //     const colImage = createCustomElement(tr, 'td', '');
-    //     const img = createCustomElement(colImage, 'img', )
-    //     img.src = show.image.medium;
-    //     img.width = 100;
-    //     img.height = 100;
+        const article = createCustomElement(articleContainer, 'article', );
+        const div = createCustomElement(article, 'div', product.name);
+        const img = document.createElement('img');
+        img.src = product.thumbnailImage;
+        div.appendChild(img);
+        div.addEventListener('click', (event) => 
+        {
+            console.log('Product was clicked...');
+            console.log(event.target);
+            const productDesc = JSON.stringify(product);
+            localStorage.setItem('selected-product', productDesc);
+            // const showId = colName.getAttribute("data-show-id");
+            // localStorage.setItem('showId', showId);
+            window.location = "product.html";
+        });
     });
+}
+
+function createCustomElement(parent, newElemName, content) {
+    const newElem = document.createElement(newElemName);
+    newElem.textContent = content;
+    parent.appendChild(newElem);
+    return newElem;
 }
 
 function accountSignIn() {
