@@ -21,11 +21,17 @@ body {
     border: 2px solid #555;
 }
 
-.carousel-inner img{
-    width: fit-content;
-    background-color: aqua;
+.carousel-inner {
+    background-color: black;
+    text-align: center;
 }
 
+.carousel-inner img {
+    max-height: 400px;
+    max-width: 100%;
+    margin: auto;
+    display: block;
+}
 #account-container-sm {
     border: 1px solid grey;
     padding: 1rem 2rem 5rem;

@@ -1,103 +1,104 @@
+document.addEventListener("DOMContentLoaded", initApp);
 
+function initApp() {
+    console.log('The app is initializing...');
 
-//wait for doc
-document.addEventListener("DOMContentLoaded", init);
-
-function init() {
-    const accConfirmBtn = document.getElementById("account-confirm-btn");
-    accountSignIn();
-    const forgotPasswordContinue = document.getElementById("forgot-password-continue-btn");
-    // fetchCatalog();
-    // forgotPasswordContinue.addEventListener('click', continueForgotPassword);
-
-    const page = document.querySelector("[data-page]").dataset.page;
-    if(page === "catalog") {
-        fetchCatalog();
-    }
-    // switch (page) {
-    //     case "home":
-    //         HomeUtils.initHome();
-    //         break;
-    //     case "cart":
-    //         break;
-    //     case "account":
-    //         break;
-    //     case "about":
-    //         break;
-    //     case "contact":
-    //         break;
-    //     case "product":
-    //         break;
-    //     default:
-    //         break;
-    // }
-}
-
-async function fetchCatalog() { 
-    try {
-        const resourceUri = './data/catalog.json';
-        const catalog = await fetchData(resourceUri);
-        console.log(catalog);
-        parseCatalog(catalog.products);
-    } catch(error) {
-        console.log(`Error while fetchcing the catalog: ${error.message}`);
+    fetchProducts();
+    
+    const searchInput = document.getElementById("searchInput");
+    if (searchInput) {
+        searchInput.addEventListener("input", searchProducts);
     }
 }
 
-async function fetchData(resourceUri) {
+async function fetchProducts() {
     try {
-        const response = await fetch(resourceUri);
-        if (!response.ok) {
-            throw new Error(`Response status was no bueno ${response.status}`);
-        }
-
+        console.log("Fetching products...");
+        
+        // Load the data from catalog.json
+        const response = await fetch('data/catalog.json');
         const data = await response.json();
-        //console.log(data);
-        return data;
-    } catch(error) {
-        throw error;
+
+        console.log(data); // Log the full response to inspect it
+
+        // Check if the response contains a 'products' property that is an array
+        if (data && Array.isArray(data.products)) {
+            parseProducts(data.products);
+            // Store products for search functionality
+            window.currentProducts = data.products;
+        } else {
+            console.log("Products data is not available or invalid:", data);
+        }
+    } catch (error) {
+        console.log(`An error occurred while fetching the products: ${error.message}`);
     }
 }
 
-function parseCatalog(catalog) {
-    const articleContainer = document.getElementById('catalog-article-container');
-    console.log(catalog);
-    catalog.forEach(product => {
-        console.log(product);
-        const article = createCustomElement(articleContainer, 'article', );
-        const div = createCustomElement(article, 'div', product.name);
-        const img = document.createElement('img');
+function parseProducts(products) {
+    const catalogContainer = document.getElementById("catalog-article-container");
+
+    // Clear any previous content in the catalog container
+    catalogContainer.innerHTML = '';
+
+    products.forEach(product => {
+        const productCard = document.createElement("div");
+        productCard.classList.add("col", "mb-4");
+        productCard.dataset.productName = product.itemTitle.toLowerCase();
+        productCard.dataset.productDescription = product.description.toLowerCase();
+
+        const card = document.createElement("div");
+        card.classList.add("card");
+
+        const img = document.createElement("img");
+        img.classList.add("card-img-top");
         img.src = product.thumbnailImage;
-        div.appendChild(img);
-        div.addEventListener('click', (event) => 
-        {
-            console.log('Product was clicked...');
-            console.log(event.target);
-            const productDesc = JSON.stringify(product);
-            localStorage.setItem('selected-product', productDesc);
-            // const showId = colName.getAttribute("data-show-id");
-            // localStorage.setItem('showId', showId);
-            window.location = "product.html";
+        img.alt = product.itemTitle;
+
+        const cardBody = document.createElement("div");
+        cardBody.classList.add("card-body");
+
+        const productName = document.createElement("h5");
+        productName.classList.add("card-title");
+        productName.textContent = product.itemTitle;
+
+        const productDescription = document.createElement("p");
+        productDescription.classList.add("card-text");
+        productDescription.textContent = `${product.description}`;
+
+        const productPrice = document.createElement("p");
+        productPrice.classList.add("card-text");
+        productPrice.textContent = `$${product.unitPrice}`;
+
+        const detailsButton = document.createElement("button");
+        detailsButton.classList.add("btn", "btn-primary");
+        detailsButton.textContent = "View Details";
+        detailsButton.addEventListener("click", () => {
+            localStorage.setItem("selectedProduct", JSON.stringify(product));
+            window.location.href = "productDetails.html";
         });
+
+        cardBody.appendChild(productName);
+        cardBody.appendChild(productPrice);
+        cardBody.appendChild(productDescription);
+        cardBody.appendChild(detailsButton);
+
+        card.appendChild(img);
+        card.appendChild(cardBody);
+
+        productCard.appendChild(card);
+        catalogContainer.appendChild(productCard);
     });
 }
 
-function createCustomElement(parent, newElemName, content) {
-    const newElem = document.createElement(newElemName);
-    newElem.textContent = content;
-    parent.appendChild(newElem);
-    return newElem;
-}
+function searchProducts() {
+    // Get the input value
+    const filter = document.getElementById('searchInput').value.toLowerCase();
 
-function accountSignIn() {
-    console.log();
-}
+    // Get all product cards
+    const productCards = document.querySelectorAll('#catalog-article-container > .col');
 
-function continueForgotPassword() {
-    window.location.href = "forgotPassword2.html";
-}
-
-
-function displayCartProduct() {
-
+    productCards.forEach(card => {
+        const title = card.querySelector('.card-title').textContent.toLowerCase();
+        card.style.display = title.includes(filter) ? '' : 'none';
+    });
 }
