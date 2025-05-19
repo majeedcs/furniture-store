@@ -1,32 +1,68 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const productData = localStorage.getItem("selectedProduct");
+import { addToCart } from './modules/cart.js';
+import { fetchData } from './modules/fetchWrapper.js';
 
-    if (!productData) {
-        document.getElementById("product-details").innerHTML = `
-            <div class="alert alert-warning">
-                No product data found. Please go back and select a product from the catalog.
-            </div>
-        `;
-        return;
+document.addEventListener("DOMContentLoaded", initProductDetails);
+
+async function initProductDetails() {
+    console.log("Product details page initializing...");
+
+    const product = await getSelectedProduct();
+    if (!product) return;
+
+    displayProductDetails(product);
+    const addToCartBtn = document.getElementById("addToCartButton");
+    if (addToCartBtn) {
+        addToCartBtn.addEventListener("click", () => {
+            const product = getSelectedProduct();
+            if (product) {
+                addToCart(product);
+                alert(`${product.itemTitle} added to cart!`);
+            }
+        });
     }
 
-    const product = JSON.parse(productData);
-    renderProductDetails(product);
-});
+    const backToCatalogBtn = document.getElementById("backToCatalogBtn");
+    if (backToCatalogBtn) {
+        backToCatalogBtn.addEventListener("click", () => {
+            window.location.href = "catalog.html";
+        });
+    }
 
-function renderProductDetails(product) {
-    const container = document.getElementById("product-details");
+    const goToCartBtn = document.getElementById("goToCartBtn");
+    if (goToCartBtn) {
+        goToCartBtn.addEventListener("click", () => {
+            window.location.href = "cart.html";
+        });
+    }
+}
 
-    container.innerHTML = `
-        <div class="row">
-            <div class="col-md-5">
-                <img src="${product.thumbnailImage}" alt="${product.itemTitle}" class="img-fluid rounded">
-            </div>
-            <div class="col-md-7">
-                <h2>${product.itemTitle}</h2>
-                <p class="text-muted">$${product.unitPrice}</p>
-                <p>${product.description}</p>
-            </div>
-        </div>
-    `;
+async function getSelectedProduct() {
+    const productId = sessionStorage.getItem("selectedProductId");
+    if (!productId) {
+        console.error("No product ID found in sessionStorage.");
+        return null;
+    }
+
+    try {
+        const data = await fetchData("data/catalog.json");
+        return data.products.find(p => p.itemId == productId);
+    } catch (error) {
+        console.error("Failed to fetch product data:", error);
+        return null;
+    }
+}
+
+function displayProductDetails(product) {
+    const productTitle = document.getElementById("productTitle");
+    const productImage = document.getElementById("productImage");
+    const productPrice = document.getElementById("productPrice");
+    const productDescription = document.getElementById("productDescription");
+
+    if (productTitle) productTitle.textContent = product.itemTitle;
+    if (productImage) {
+        productImage.src = product.thumbnailImage;
+        productImage.alt = product.itemTitle;
+    }
+    if (productPrice) productPrice.textContent = `$${product.unitPrice}`;
+    if (productDescription) productDescription.textContent = product.description;
 }

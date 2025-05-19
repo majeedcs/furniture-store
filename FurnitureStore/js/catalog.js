@@ -1,10 +1,12 @@
-document.addEventListener("DOMContentLoaded", initApp);
+import { fetchData } from './modules/fetchWrapper.js';
+import { addToCart } from './modules/cart.js';
 
-function initApp() {
-    console.log('The app is initializing...');
+document.addEventListener("DOMContentLoaded", initCatalog);
 
+function initCatalog() {
+    console.log('Catalog page initializing...');
     fetchProducts();
-    
+
     const searchInput = document.getElementById("searchInput");
     if (searchInput) {
         searchInput.addEventListener("input", searchProducts);
@@ -13,31 +15,16 @@ function initApp() {
 
 async function fetchProducts() {
     try {
-        console.log("Fetching products...");
-        
-        // Load the data from catalog.json
-        const response = await fetch('data/catalog.json');
-        const data = await response.json();
-
-        console.log(data); // Log the full response to inspect it
-
-        // Check if the response contains a 'products' property that is an array
-        if (data && Array.isArray(data.products)) {
-            parseProducts(data.products);
-            // Store products for search functionality
-            window.currentProducts = data.products;
-        } else {
-            console.log("Products data is not available or invalid:", data);
-        }
+        const resourceURI = 'data/catalog.json';
+        const data = await fetchData(resourceURI);
+        parseProducts(data.products);
     } catch (error) {
-        console.log(`An error occurred while fetching the products: ${error.message}`);
+        console.log(`An error occurred while fetching the products. ${error.message}`);
     }
 }
 
 function parseProducts(products) {
     const catalogContainer = document.getElementById("catalog-article-container");
-
-    // Clear any previous content in the catalog container
     catalogContainer.innerHTML = '';
 
     products.forEach(product => {
@@ -61,44 +48,49 @@ function parseProducts(products) {
         productName.classList.add("card-title");
         productName.textContent = product.itemTitle;
 
-        const productDescription = document.createElement("p");
-        productDescription.classList.add("card-text");
-        productDescription.textContent = `${product.description}`;
-
         const productPrice = document.createElement("p");
         productPrice.classList.add("card-text");
         productPrice.textContent = `$${product.unitPrice}`;
+
+        const productDescription = document.createElement("p");
+        productDescription.classList.add("card-text");
+        productDescription.textContent = product.description;
 
         const detailsButton = document.createElement("button");
         detailsButton.classList.add("btn", "btn-primary");
         detailsButton.textContent = "View Details";
         detailsButton.addEventListener("click", () => {
-            localStorage.setItem("selectedProduct", JSON.stringify(product));
+                sessionStorage.setItem("selectedProductId", product.itemId);
             window.location.href = "productDetails.html";
         });
 
+        const addToCartButton = document.createElement("button");
+        addToCartButton.classList.add("btn", "btn-success");
+        addToCartButton.textContent = "Add to Cart";
+        addToCartButton.addEventListener("click", () => {
+            addToCart(product);
+            alert(`${product.itemTitle} added to cart!`);
+        });
+
         cardBody.appendChild(productName);
-        cardBody.appendChild(productPrice);
         cardBody.appendChild(productDescription);
+        cardBody.appendChild(productPrice);
         cardBody.appendChild(detailsButton);
+        cardBody.appendChild(addToCartButton);
 
         card.appendChild(img);
         card.appendChild(cardBody);
-
         productCard.appendChild(card);
         catalogContainer.appendChild(productCard);
     });
 }
 
 function searchProducts() {
-    // Get the input value
     const filter = document.getElementById('searchInput').value.toLowerCase();
-
-    // Get all product cards
     const productCards = document.querySelectorAll('#catalog-article-container > .col');
 
     productCards.forEach(card => {
         const title = card.querySelector('.card-title').textContent.toLowerCase();
-        card.style.display = title.includes(filter) ? '' : 'none';
+        card.style.display = title.includes(filter) ? 'block' : 'none';
     });
 }
