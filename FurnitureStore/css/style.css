@@ -28,6 +28,9 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
+footer {
+    text-align: center;
+}
 
 h1 {
   font-family: 'Trirong', serif;
