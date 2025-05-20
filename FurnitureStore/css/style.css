@@ -24,14 +24,13 @@ html[data-theme="dark"] a {
   color: rgb(41, 80, 255);
 }
 
-body {
-  transition: background-color 0.3s, color 0.3s;
-}
 
-
-h1 {
+#rm-furniture a {
   font-family: 'Trirong', serif;
   font-weight: 800;
+  color: rgb(156, 156, 156);
+  text-decoration: none;
+  text-shadow: 2px 2px black ;
 }
 
 /* Product Listing*/
@@ -90,4 +89,38 @@ h1 {
 
 nav{
     font-family: Arial, Helvetica, sans-serif;
+}
+/* Map*/
+
+#map-container {
+  display: flex;
+  height: 500px;
+}
+
+#location-list {
+  width: 30%;
+  border: 1px solid;
+}
+
+#location-list ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#location-list li {
+  padding: 5px;
+  margin: 3px;
+  border: 1px solid;
+  cursor: pointer;
+}
+
+#map {
+  width: 70%;
+  height: 100%;
+  border: 1px dashed;
+
+}
+
+footer{
+  text-align: center;
 }
