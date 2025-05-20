@@ -1,0 +1,251 @@
+{
+  "categories": [
+    {
+      "categoryId": 1,
+      "categoryName": "Chairs",
+      "description": "Seating for home and office."
+    },
+    {
+      "categoryId": 2,
+      "categoryName": "Tables",
+      "description": "Stylish and functional tables."
+    },
+    {
+      "categoryId": 3,
+      "categoryName": "Beds",
+      "description": "Sleeping furniture in various styles."
+    },
+    {
+      "categoryId": 4,
+      "categoryName": "Storage",
+      "description": "Cabinets, closets, and drawers."
+    },
+    {
+      "categoryId": 5,
+      "categoryName": "Miscellaneous",
+      "description": "Other home essentials and unique finds."
+    }
+  ],
+  "products": [
+    {
+      "itemId": "1",
+      "categoryId": "1",
+      "itemTitle": "Recliner Chair",
+      "description": "A plush recliner with adjustable back and footrest for ultimate relaxation.",
+      "brand": "ComfortZone",
+      "unitPrice": "299.99",
+      "quantityInStock": "12",
+      "make": "Leather",
+      "thumbnailImage": "./assets/images/recliner_chair.jpg"
+    },
+    {
+      "itemId": "2",
+      "categoryId": "1",
+      "itemTitle": "Dining Chair",
+      "description": "Classic wooden dining chair with cushioned seat.",
+      "brand": "WoodWorks",
+      "unitPrice": "89.99",
+      "quantityInStock": "40",
+      "make": "Oak Wood",
+      "thumbnailImage": "./assets/images/dining_chair.jpg"
+    },
+    {
+      "itemId": "3",
+      "categoryId": "1",
+      "itemTitle": "Rocking Chair",
+      "description": "Traditional rocking chair perfect for porches and nurseries.",
+      "brand": "Heritage",
+      "unitPrice": "149.99",
+      "quantityInStock": "8",
+      "make": "Pine Wood",
+      "thumbnailImage": "./assets/images/rocking_chair.jpg"
+    },
+    {
+      "itemId": "4",
+      "categoryId": "1",
+      "itemTitle": "Gaming Chair",
+      "description": "Ergonomic gaming chair with lumbar support and adjustable height.",
+      "brand": "ProGamer",
+      "unitPrice": "199.99",
+      "quantityInStock": "20",
+      "make": "PU Leather",
+      "thumbnailImage": "./assets/images/gaming_chair.jpg"
+    },
+    {
+      "itemId": "5",
+      "categoryId": "2",
+      "itemTitle": "Coffee Table",
+      "description": "Modern glass coffee table with metal frame.",
+      "brand": "UrbanHome",
+      "unitPrice": "129.99",
+      "quantityInStock": "15",
+      "make": "Glass & Steel",
+      "thumbnailImage": "./assets/images/coffee_table.jpg"
+    },
+    {
+      "itemId": "6",
+      "categoryId": "2",
+      "itemTitle": "Dining Table",
+      "description": "Expandable dining table for 6–8 people.",
+      "brand": "MealMate",
+      "unitPrice": "499.99",
+      "quantityInStock": "10",
+      "make": "Solid Wood",
+      "thumbnailImage": "./assets/images/dining_table.jpg"
+    },
+    {
+      "itemId": "7",
+      "categoryId": "2",
+      "itemTitle": "Side Table",
+      "description": "Compact side table with storage drawer.",
+      "brand": "EveryCorner",
+      "unitPrice": "69.99",
+      "quantityInStock": "25",
+      "make": "MDF",
+      "thumbnailImage": "./assets/images/side_table.jpg"
+    },
+    {
+      "itemId": "8",
+      "categoryId": "2",
+      "itemTitle": "Work Desk",
+      "description": "Minimalist desk ideal for home offices.",
+      "brand": "SmartDesk",
+      "unitPrice": "199.99",
+      "quantityInStock": "18",
+      "make": "Laminate",
+      "thumbnailImage": "./assets/images/work_desk.jpg"
+    },
+    {
+      "itemId": "9",
+      "categoryId": "3",
+      "itemTitle": "Queen Bed Frame",
+      "description": "Elegant queen-size bed frame with headboard.",
+      "brand": "SleepWell",
+      "unitPrice": "599.99",
+      "quantityInStock": "7",
+      "make": "Upholstered",
+      "thumbnailImage": "./assets/images/queen_bed.jpg"
+    },
+    {
+      "itemId": "10",
+      "categoryId": "3",
+      "itemTitle": "Bunk Bed",
+      "description": "Space-saving bunk bed for kids.",
+      "brand": "KiddoSpace",
+      "unitPrice": "399.99",
+      "quantityInStock": "5",
+      "make": "Metal Frame",
+      "thumbnailImage": "./assets/images/bunk_bed.jpg"
+    },
+    {
+      "itemId": "11",
+      "categoryId": "3",
+      "itemTitle": "Daybed",
+      "description": "Multifunctional daybed with trundle.",
+      "brand": "FlexRest",
+      "unitPrice": "349.99",
+      "quantityInStock": "9",
+      "make": "Wood Composite",
+      "thumbnailImage": "./assets/images/daybed.jpg"
+    },
+    {
+      "itemId": "12",
+      "categoryId": "3",
+      "itemTitle": "Canopy Bed",
+      "description": "Romantic canopy bed with metal frame.",
+      "brand": "DreamStyle",
+      "unitPrice": "649.99",
+      "quantityInStock": "4",
+      "make": "Wrought Iron",
+      "thumbnailImage": "./assets/images/canopy_bed.jpg"
+    },
+    {
+      "itemId": "13",
+      "categoryId": "4",
+      "itemTitle": "Wardrobe Closet",
+      "description": "Spacious freestanding wardrobe with mirror doors.",
+      "brand": "ClosetPro",
+      "unitPrice": "799.99",
+      "quantityInStock": "6",
+      "make": "Engineered Wood",
+      "thumbnailImage": "./assets/images/wardrobe.jpg"
+    },
+    {
+      "itemId": "14",
+      "categoryId": "4",
+      "itemTitle": "Bookshelf",
+      "description": "5-tier open shelf for books and decor.",
+      "brand": "ReadMore",
+      "unitPrice": "119.99",
+      "quantityInStock": "14",
+      "make": "Particle Board",
+      "thumbnailImage": "./assets/images/bookshelf.jpg"
+    },
+    {
+      "itemId": "15",
+      "categoryId": "4",
+      "itemTitle": "TV Stand",
+      "description": "TV console with storage cabinets and cable management.",
+      "brand": "ViewPoint",
+      "unitPrice": "179.99",
+      "quantityInStock": "11",
+      "make": "MDF & Glass",
+      "thumbnailImage": "./assets/images/tv_stand.jpg"
+    },
+    {
+      "itemId": "16",
+      "categoryId": "4",
+      "itemTitle": "Dresser",
+      "description": "6-drawer dresser with sleek handles.",
+      "brand": "NeatNest",
+      "unitPrice": "349.99",
+      "quantityInStock": "8",
+      "make": "Wood Composite",
+      "thumbnailImage": "./assets/images/dresser.jpg"
+    },
+    {
+      "itemId": "17",
+      "categoryId": "5",
+      "itemTitle": "Floor Lamp",
+      "description": "Adjustable floor lamp with LED bulb.",
+      "brand": "BrightNest",
+      "unitPrice": "59.99",
+      "quantityInStock": "30",
+      "make": "Metal & Fabric",
+      "thumbnailImage": "./assets/images/floor_lamp.jpg"
+    },
+    {
+      "itemId": "18",
+      "categoryId": "5",
+      "itemTitle": "Full-Length Mirror",
+      "description": "Standing mirror with wooden frame.",
+      "brand": "ReflectHome",
+      "unitPrice": "89.99",
+      "quantityInStock": "10",
+      "make": "Glass & Wood",
+      "thumbnailImage": "./assets/images/mirror.jpg"
+    },
+    {
+      "itemId": "19",
+      "categoryId": "5",
+      "itemTitle": "Laundry Basket",
+      "description": "Woven laundry basket with lid and handles.",
+      "brand": "CleanZone",
+      "unitPrice": "39.99",
+      "quantityInStock": "22",
+      "make": "Rattan",
+      "thumbnailImage": "./assets/images/laundry_basket.jpg"
+    },
+    {
+      "itemId": "20",
+      "categoryId": "5",
+      "itemTitle": "Shoe Rack",
+      "description": "Tiered metal shoe rack for entryways.",
+      "brand": "StepNeat",
+      "unitPrice": "49.99",
+      "quantityInStock": "16",
+      "make": "Steel",
+      "thumbnailImage": "./assets/images/shoe_rack.jpg"
+    }
+  ]
+}
