@@ -1,19 +1,37 @@
-/*Theme*/
 
-:root[data-theme="light"] {
-    --r-bg-color: white; /*bg is background*/
-    --r-font-color: rgb(0,0,0);
-    
+/* Light Theme */
+html[data-theme="light"],
+html[data-theme="light"] body {
+  background-color: white;
+  color: black;
 }
 
-html[data-theme="dark"] {
-    --r-bg-color: rgb(40,40,40); /*bg is background*/
-    --r-font-color: white;
+/* Dark Theme */
+html[data-theme="dark"],
+html[data-theme="dark"] body {
+  background-color: rgb(27, 27, 27);
+  color: white;
+}
+
+html[data-theme="dark"] .container,
+html[data-theme="dark"] header,
+html[data-theme="dark"] footer {
+  background-color: rgb(27, 27, 27);
+  
+}
+/* For nav bar and all links */
+html[data-theme="dark"] a {
+  color: rgb(41, 80, 255);
 }
 
 body {
-    background-color: var(--r-bg-color);
-    color: var(--r-font-color)
+  transition: background-color 0.3s, color 0.3s;
+}
+
+
+h1 {
+  font-family: 'Trirong', serif;
+  font-weight: 800;
 }
 
 /* Product Listing*/
@@ -68,4 +86,8 @@ body {
     margin-left: 25%;
     border: 1px solid black;
     width: 50%;
+}
+
+nav{
+    font-family: Arial, Helvetica, sans-serif;
 }

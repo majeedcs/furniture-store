@@ -4,33 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Your Cart - RM Furniture Store</title>
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icon//favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icon//favicon-16x16.png">
+    <link rel="manifest" href="assets/icon//site.webmanifest"></head>
 </head>
 <body>
     <header class="mb-4">
         <h1 id="rm-furniture">
             <a href="index.html" class="text-dark text-decoration-none">RM Furniture Store</a>
         </h1>
-        <div class="row justify-content-center mb-3">
-            <div class="col-md-6">
-                <form class="d-flex" role="search" aria-label="Search products">
-                    <div class="input-group">
-                        <input
-                            type="search"
-                            id="searchInput"
-                            placeholder="Search products..."
-                            class="form-control"
-                            aria-describedby="searchButton"
-                        />
-                        <button id="searchButton" class="btn btn-primary" type="button" aria-label="Search">
-                            <img src="assets/images/search.svg" alt="Search icon" />
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
+        
         <nav>
             <ul class="nav nav-pills nav-fill">
                 <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
@@ -52,7 +39,10 @@
 
         <p id="empty-cart-message" style="display: none;">Your cart is empty.</p>
 
-        <button id="clear-cart-btn" class="btn btn-danger mt-4">Clear Cart</button>
+        <div class="d-flex justify-content-between">
+            <button id="clear-cart-btn" class="btn btn-danger">Clear Cart</button>
+            <button id="checkout-btn" class="btn btn-success">Checkout</button>
+        </div>
     </main>
 
     <footer class="text-center mt-5 mb-3">
@@ -61,5 +51,7 @@
     </footer>
 
     <script type="module" src="./js/modules/cart.js"></script>
+    <script src="js/settings.js"></script>
+
 </body>
 </html>
