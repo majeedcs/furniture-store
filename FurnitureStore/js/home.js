@@ -18,7 +18,7 @@ async function loadFeaturedProducts() {
     renderFeaturedProducts(featuredProducts);
 
   } catch (error) {
-    console.error('Failed to load featured products:', error);
+    console.log('Failed to load featured products:', error);
   }
 }
 

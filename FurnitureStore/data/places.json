@@ -1,0 +1,50 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "RONA",
+      "description": "Hardware and renovation stores",
+      "markerIcon": "./assets/images/ltblu-pushpin.png"
+    },
+    {
+      "id": 2,
+      "name": "Brick",
+      "description": "Furniture and appliances stores",
+      "markerIcon": "./assets/images/wht-pushpin.png"
+    }
+  ],
+  "places": [
+    {
+      "name": "RONA+ Marché Central",
+      "description": "Large hardware store in Marché Central",
+      "point": {
+        "coordinates": " -73.65711732719117, 45.53662853524709"
+      },
+      "categoryId": 1
+    },
+    {
+      "name": "RONA Pierrefonds",
+      "description": "Home improvement store in Pierrefonds",
+      "point": {
+        "coordinates": "-73.86607708648764, 45.46294352132022"
+      },
+      "categoryId": 1
+    },
+    {
+      "name": "The Brick - Marché Central",
+      "description": "Brick store in Marché Central",
+      "point": {
+        "coordinates": "-73.64673806617444, 45.532533567305116"
+      },
+      "categoryId": 2
+    },
+    {
+      "name": "The Brick - Anjou",
+      "description": "Brick store at Anjou",
+      "point": {
+        "coordinates": "-73.55513142835932, 45.60438554304554"
+      },
+      "categoryId": 2
+    }
+  ]
+}
