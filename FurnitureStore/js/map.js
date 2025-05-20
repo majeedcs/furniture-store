@@ -1,3 +1,7 @@
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+>>>>>>> Stashed changes
 import { fetchData } from './modules/fetchWrapper.js';
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -51,3 +55,18 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log("failed to load places:", error);
   }
 });
+<<<<<<< Updated upstream
+=======
+=======
+var map = L.map('map').setView([51.505, -0.09], 13);
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+>>>>>>> 826d50abec899a6edd5e497bf3cca5c523f7a74a
+>>>>>>> Stashed changes

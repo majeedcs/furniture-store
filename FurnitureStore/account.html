@@ -55,53 +55,77 @@
         <form id="registerForm">
             <h2>Personal Information</h2>
 
-            <label for="firstName">First Name:</label><br>
-            <input type="text" id="firstName" placeholder="First Name" required><br><br>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="firstName" class="form-label">First Name:</label>
+                    <input type="text" id="firstName" class="form-control" placeholder="First Name" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="lastName" class="form-label">Last Name:</label>
+                    <input type="text" id="lastName" class="form-control" placeholder="Last Name" required>
+                </div>
+            </div>
 
-            <label for="lastName">Last Name:</label><br>
-            <input type="text" id="lastName" placeholder="Last Name" required><br><br>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" id="email" class="form-control" placeholder="example@domain.com" required>
+            </div>
 
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" placeholder="example@domain.com" required><br><br>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone Number:</label>
+                <input type="tel" id="phone" class="form-control" placeholder="111-111-1111" pattern="^\d{3}-\d{3}-\d{4}$" required>
+            </div>
 
-            <label for="password">Password:</label><br>
-            <input type="password" id="password" placeholder="Password" required><br><br>
-
-            <label for="confirmPassword">Confirm Password:</label><br>
-            <input type="password" id="confirmPassword" placeholder="Confirm Password" required><br><br>
-
-            <label for="phone">Phone Number:</label><br>
-            <input type="tel" id="phone" placeholder="Phone Number" required><br><br>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="password" class="form-label">Password:</label>
+                    <input type="password" id="password" class="form-control" placeholder="Password" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="confirmPassword" class="form-label">Confirm Password:</label>
+                    <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm Password" required>
+                </div>
+            </div>
 
             <h2>Address</h2>
 
-            <label for="street">Street:</label><br>
-            <input type="text" id="street" placeholder="Street" required>
-            <br><br>
+            <div class="mb-3">
+                <label for="street" class="form-label">Street:</label>
+                <input type="text" id="street" class="form-control" placeholder="Street" required>
+            </div>
 
-            <label for="apartment">Apartment #:</label><br>
-            <input type="text" id="apartment" placeholder="Apartment #"><br><br>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="apartment" class="form-label">Apartment #:</label>
+                    <input type="text" id="apartment" class="form-control" placeholder="Apartment #">
+                </div>
+                <div class="col-md-6">
+                    <label for="postalCode" class="form-label">Postal Code:</label>
+                    <input type="text" id="postalCode" class="form-control" placeholder="Postal Code" pattern="^[a-zA-Z]\d[a-zA-Z] \d[a-zA-Z]\d" required>
+                </div>
+            </div>
 
-            <label for="postalCode">Postal Code:</label><br>
-            <input type="text" id="postalCode" placeholder="Postal Code" required><br><br>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="city" class="form-label">City:</label>
+                    <input type="text" id="city" class="form-control" placeholder="City" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="province" class="form-label">Province:</label>
+                    <input type="text" id="province" class="form-control" placeholder="Province" required>
+                </div>
+            </div>
 
-            <label for="city">City:</label><br>
-            <input type="text" id="city" placeholder="City" required><br><br>
-
-            <label for="province">Province:</label><br>
-            <input type="text" id="province" placeholder="Province" required><br><br>
-
-            <label for="country">Country:</label><br>
-            <input type="text" id="country" placeholder="Country" required><br><br>
-
-            <button class="btn btn-success m-2" type="submit">Register</button>
+            <div class="mb-3">
+                <label for="country" class="form-label">Country:</label>
+                <input type="text" id="country" class="form-control" placeholder="Country" required>
+            </div>
+            <button class="btn btn-success m-2" type="submit" style="width: 10%">Register</button>
         </form>
     </div>
 
     <br>
-    <p style="text-align: center;">
-        Don't have an account? - <a href="accountCreation.html">Create an account</a>
-    </p>
+
     <footer>
         <hr>
         <p style="text-align: center;">

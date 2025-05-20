@@ -9,3 +9,10 @@ export async function fetchData(resourceURI){
         throw error;
     }
 }
+
+export function createCustomElement(parent, newElemName, content) {
+    const newElem = document.createElement(newElemName);
+    newElem.textContent = content;
+    parent.appendChild(newElem);
+    return newElem;
+}
