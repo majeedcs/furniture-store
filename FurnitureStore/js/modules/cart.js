@@ -3,17 +3,23 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("cart page initializing");
     
     document.getElementById('clear-cart-btn').addEventListener('click', () => {
+        if (confirm('Are you sure you want to clear your cart?')){
         localStorage.removeItem('cart');
         renderCart();
+    }
+    });
+    
+    document.getElementById('checkout-btn').addEventListener('click', () => {
+        alert('Proceeding to checkout...')
     });
 });
 
-export function getCart() {
+function getCart() {
     const cartJSON = localStorage.getItem('cart');
     return cartJSON ? JSON.parse(cartJSON) : [];
 }
 
-export function saveCart(cart) {
+function saveCart(cart) {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
@@ -37,8 +43,7 @@ export function addToCart(product) {
     saveCart(cart);
 }
 
-// cart.js
-export function renderCart() {
+function renderCart() {
     const cartContainer = document.getElementById('cart-container');
     const emptyMessage = document.getElementById('empty-cart-message');
     const cart = getCart();
@@ -57,7 +62,6 @@ export function renderCart() {
         const listItem = document.createElement('div');
         listItem.classList.add('list-group-item', 'd-flex', 'align-items-center', 'gap-3', 'flex-wrap');
 
-        // Product Image (small thumbnail)
         const img = document.createElement('img');
         img.src = item.thumbnailImage;
         img.alt = item.itemTitle;
@@ -66,7 +70,6 @@ export function renderCart() {
         img.style.objectFit = 'cover';
         img.classList.add('flex-shrink-0');
 
-        // Product details container
         const details = document.createElement('div');
         details.classList.add('flex-grow-1', 'me-3');
 
@@ -85,7 +88,6 @@ export function renderCart() {
         details.appendChild(price);
         details.appendChild(subtotal);
 
-        // Quantity controls container
         const quantityControls = document.createElement('div');
         quantityControls.classList.add('d-flex', 'align-items-center', 'gap-2');
 
@@ -102,12 +104,11 @@ export function renderCart() {
             }
         });
 
-        // Quantity display
         const quantityDisplay = document.createElement('span');
         quantityDisplay.textContent = item.quantity;
         quantityDisplay.classList.add('px-2');
 
-        // Increase quantity button
+
         const incBtn = document.createElement('button');
         incBtn.classList.add('btn', 'btn-outline-secondary', 'btn-sm');
         incBtn.textContent = '+';
@@ -122,7 +123,6 @@ export function renderCart() {
         quantityControls.appendChild(quantityDisplay);
         quantityControls.appendChild(incBtn);
 
-        // Remove item button
         const removeBtn = document.createElement('button');
         removeBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'ms-auto');
         removeBtn.textContent = 'Remove';
@@ -141,35 +141,14 @@ export function renderCart() {
 
         cartContainer.appendChild(listItem);
     });
+
+    let total = 0;
+    for (const item of cart) {
+        total += item.unitPrice * item.quantity;
+    }
+    const totalDisplay = document.createElement('div');
+    totalDisplay.textContent = `Total: $${total}`;
+    cartContainer.appendChild(totalDisplay);
 }
 
 
-function updateQuantity(index, quantity) {
-    const cart = getCart();
-    cart[index].quantity = quantity;
-    saveCart(cart);
-    renderCart();
-}
-
-function removeFromCart(index) {
-    const cart = getCart();
-    cart.splice(index, 1);
-    saveCart(cart);
-    renderCart();
-}
-
-function clearCart() {
-    localStorage.removeItem('cart');
-    renderCart();
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    renderCart();
-
-    const clearBtn = document.getElementById('clear-cart-btn');
-    clearBtn.addEventListener('click', () => {
-        if (confirm('Are you sure you want to clear your cart?')) {
-            clearCart();
-        }
-    });
-});
