@@ -11,6 +11,18 @@
       "name": "Brick",
       "description": "Furniture and appliances stores",
       "markerIcon": "./assets/images/wht-pushpin.png"
+    },
+    {
+      "id": "3",
+      "name": "McDonalds",
+      "description": "One of the most popular fast food joints",
+      "markerIcon": "./assets/images/pin.png"
+    },
+    {
+      "id": "4",
+      "name": "Walmart",
+      "description": "One of the most popular super stores",
+      "markerIcon": "./assets/images/pushpin.png"
     }
   ],
   "places": [
@@ -45,6 +57,38 @@
         "coordinates": "-73.55513142835932, 45.60438554304554"
       },
       "categoryId": 2
+    },
+    {
+      "name": "McDonalds - Cote Vertu",
+      "description": "McDonalds at Cote Vertu",
+      "point": {
+        "coordinates": "-73.68454472633691, 45.51413266509645"
+      },
+      "categoryId": 3
+    },
+    {
+      "name": "McDonalds - Marché Central",
+      "description": "McDonalds in Marché Central",
+      "point": {
+        "coordinates": "-73.66051213584355, 45.53560012746821"
+      },
+      "categoryId": 3
+    },
+    {
+      "name": "Walmart - Marché Central",
+      "description": "Walmart at Marché Central",
+      "point": {
+        "coordinates": "-73.6474853018077, 45.534918733125615"
+      },
+      "categoryId": 4
+    },
+    {
+      "name": "Walmart - Cote-des-neiges",
+      "description": "Walmart at Cote-des-neiges",
+      "point": {
+        "coordinates": "-73.63783040651676, 45.502425333787116"
+      },
+      "categoryId": 4
     }
   ]
 }
